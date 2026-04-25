@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shikha ke liye 💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #e8536a;
+    --blush: #f9c4ce;
+    --deep: #c0374f;
+    --cream: #fff8f0;
+    --gold: #e4b06a;
+    --text: #3a1a22;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--cream);
+    overflow-x: hidden;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ctext y='20' font-size='20'%3E🌸%3C/text%3E%3C/svg%3E"), auto;
+  }
+
+  /* ===== PAGES ===== */
+  .page {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  .page.active { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+  /* ===== FLOATING PETALS ===== */
+  .petals-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .petal {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: fall linear infinite;
+    opacity: 0.7;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-60px) rotate(0deg); opacity: 0.8; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  /* ===== PAGE 1 - INTRO ===== */
+  #page1 {
+    background: linear-gradient(135deg, #ffe0e6 0%, #fff0f5 40%, #fce4ec 100%);
+    text-align: center;
+  }
+  #page1::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 20%, rgba(232,83,106,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 80%, rgba(228,176,106,0.2) 0%, transparent 60%);
+  }
+  .intro-content { position: relative; z-index: 2; padding: 2rem; }
+  .intro-content h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(3rem, 10vw, 6rem);
+    color: var(--rose);
+    text-shadow: 2px 4px 20px rgba(232,83,106,0.3);
+    animation: heartbeat 2s ease-in-out infinite;
+    line-height: 1.1;
+  }
+  @keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  .intro-content p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: var(--deep);
+    margin: 1.5rem 0 2.5rem;
+    opacity: 0.85;
+  }
+  .big-heart {
+    font-size: clamp(4rem, 15vw, 8rem);
+    display: block;
+    margin: 1rem auto;
+    animation: pulse 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(232,83,106,0.6));
+  }
+  @keyframes pulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+
+  /* ===== PAGE 2 - GIF 1 ===== */
+  #page2 { background: linear-gradient(160deg, #1a0a10 0%, #3d1020 50%, #1a0a10 100%); }
+  .stars {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(2px 2px at 20% 30%, white, transparent),
+      radial-gradient(1px 1px at 60% 20%, white, transparent),
+      radial-gradient(2px 2px at 80% 70%, white, transparent),
+      radial-gradient(1px 1px at 40% 80%, white, transparent),
+      radial-gradient(1px 1px at 10% 60%, white, transparent),
+      radial-gradient(2px 2px at 90% 10%, white, transparent),
+      radial-gradient(1px 1px at 50% 50%, white, transparent);
+    animation: twinkle 3s ease-in-out infinite;
+    opacity: 0.6;
+  }
+  @keyframes twinkle { 0%,100%{opacity:0.4} 50%{opacity:0.8} }
+  .gif-card {
+    position: relative; z-index: 2;
+    text-align: center; padding: 2rem;
+    max-width: 500px; width: 90%;
+  }
+  .gif-card h2 {
+    font-family: 'Dancing Script', cursive;
+    color: #ffb3c1;
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 30px rgba(255,179,193,0.8);
+  }
+  .gif-card img {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 20px;
+    border: 3px solid rgba(255,179,193,0.4);
+    box-shadow: 0 0 40px rgba(232,83,106,0.5), 0 20px 60px rgba(0,0,0,0.5);
+    margin-bottom: 1.5rem;
+  }
+  .gif-card .quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #ffcdd8;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  /* ===== PAGE 3 - LETTER ===== */
+  #page3 {
+    background: linear-gradient(135deg, #fff8f0 0%, #fce4ec 100%);
+    padding: 2rem 1rem;
+    align-items: center;
+  }
+  .envelope-wrapper { position: relative; z-index: 2; width: 90%; max-width: 620px; }
+  .letter-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .letter-header h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    color: var(--rose);
+  }
+  .letter-paper {
+    background: #fffdf9;
+    border-radius: 4px;
+    padding: clamp(1.5rem, 5vw, 3rem);
+    box-shadow: 0 10px 60px rgba(192,55,79,0.15), 0 2px 10px rgba(0,0,0,0.08),
+                inset 0 0 0 1px rgba(228,176,106,0.3);
+    position: relative;
+    border-left: 4px solid var(--rose);
+  }
+  .letter-paper::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 100%;
+    background: repeating-linear-gradient(transparent, transparent 28px, rgba(232,83,106,0.08) 28px, rgba(232,83,106,0.08) 29px);
+    border-radius: 4px;
+    pointer-events: none;
+  }
+  .letter-paper p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    color: var(--text);
+    line-height: 1.9;
+    margin-bottom: 1.2rem;
+    position: relative; z-index: 1;
+  }
+  .letter-paper .salutation {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    color: var(--rose);
+    margin-bottom: 1rem;
+  }
+  .letter-paper .sign-off {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.2rem, 3.5vw, 1.7rem);
+    color: var(--deep);
+    text-align: right;
+    margin-top: 1rem;
+  }
+  .rose-dec { font-size: 1.5rem; display: inline-block; animation: sway 3s ease-in-out infinite; }
+  @keyframes sway { 0%,100%{transform:rotate(-10deg)} 50%{transform:rotate(10deg)} }
+
+  /* ===== PAGE 4 - GIF 2 ===== */
+  #page4 { background: linear-gradient(160deg, #0d0d1a 0%, #1a0d2e 50%, #0d1a1a 100%); }
+
+  /* ===== PAGE 5 - GIF 3 ===== */
+  #page5 { background: linear-gradient(135deg, #1a0a1a 0%, #2d1030 100%); }
+
+  /* ===== PAGE 6 - YES/NO GAME ===== */
+  #page6 {
+    background: linear-gradient(135deg, #ffe0e9 0%, #fff0f8 100%);
+    text-align: center;
+  }
+  #page6::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(232,83,106,0.1) 0%, transparent 70%);
+  }
+  .game-box {
+    position: relative; z-index: 2;
+    padding: 2rem 1rem;
+    max-width: 500px; width: 90%;
+  }
+  .game-box h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2rem, 7vw, 3.2rem);
+    color: var(--rose);
+    margin-bottom: 0.5rem;
+  }
+  .game-box .sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--deep);
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+  }
+  .question-heart { font-size: 4rem; display: block; margin: 1rem auto; animation: pulse 1.5s infinite; }
+  .btn-group { display: flex; gap: 1.5rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap; }
+  .btn-yes {
+    background: linear-gradient(135deg, var(--rose), var(--deep));
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(232,83,106,0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: glow 2s ease-in-out infinite;
+  }
+  @keyframes glow {
+    0%,100%{box-shadow:0 8px 25px rgba(232,83,106,0.5)}
+    50%{box-shadow:0 8px 40px rgba(232,83,106,0.9)}
+  }
+  .btn-yes:hover { transform: scale(1.1); }
+  .btn-no {
+    background: white;
+    color: var(--rose);
+    border: 2px solid var(--rose);
+    padding: 1rem 2.5rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.15s;
+    position: relative;
+  }
+
+  /* ===== PAGE 7 - YES SURPRISE ===== */
+  #page7 { background: linear-gradient(135deg, #1a0a10 0%, #3d1525 100%); text-align: center; }
+  .surprise-content { position: relative; z-index: 2; padding: 2rem 1rem; max-width: 550px; }
+  .surprise-content h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2.5rem, 9vw, 5rem);
+    color: #ffb3c6;
+    text-shadow: 0 0 40px rgba(255,100,130,0.8);
+    animation: heartbeat 1s infinite;
+    margin-bottom: 1rem;
+  }
+  .fireworks {
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+    animation: firework-anim 0.5s ease-in-out infinite alternate;
+  }
+  @keyframes firework-anim { from{transform:scale(1)} to{transform:scale(1.2)} }
+  .surprise-msg {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #ffcdd8;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    line-height: 1.8;
+    margin: 1.5rem 0;
+  }
+  .big-surprise-gif img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 20px;
+    border: 3px solid rgba(255,179,193,0.5);
+    box-shadow: 0 0 50px rgba(255,100,130,0.6);
+    margin: 1rem auto;
+    display: block;
+  }
+  /* Confetti */
+  .confetti-piece {
+    position: fixed;
+    width: 10px; height: 10px;
+    pointer-events: none;
+    z-index: 9999;
+    border-radius: 2px;
+    animation: confetti-fall 3s linear infinite;
+  }
+  @keyframes confetti-fall {
+    0%{transform:translateY(-50px) rotate(0deg); opacity:1}
+    100%{transform:translateY(110vh) rotate(720deg); opacity:0}
+  }
+
+  /* ===== PAGE 8 - SAD (No twice) ===== */
+  #page8 { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); text-align: center; }
+  .sad-content { position: relative; z-index: 2; padding: 2rem 1rem; max-width: 500px; }
+  .sad-content h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    color: #90caf9;
+    margin-bottom: 1rem;
+  }
+  .sad-gif img {
+    width: 100%; max-width: 320px;
+    border-radius: 15px;
+    margin: 1rem auto; display: block;
+    box-shadow: 0 0 30px rgba(144,202,249,0.3);
+  }
+  .sad-msg {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #b0bec5;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    line-height: 1.7;
+    margin: 1rem 0;
+  }
+  .retry-btn {
+    background: linear-gradient(135deg, #1565c0, #0d47a1);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 1rem;
+    box-shadow: 0 5px 20px rgba(21,101,192,0.4);
+    transition: transform 0.2s;
+  }
+  .retry-btn:hover { transform: scale(1.05); }
+
+  /* ===== NAV DOTS ===== */
+  .nav-btn {
+    display: inline-block;
+    margin-top: 2rem;
+    background: linear-gradient(135deg, var(--rose), var(--deep));
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(232,83,106,0.4);
+    transition: transform 0.2s;
+    position: relative; z-index: 2;
+  }
+  .nav-btn:hover { transform: scale(1.05); }
+  .nav-btn-light {
+    background: white;
+    color: var(--rose);
+    border: 2px solid var(--rose);
+  }
+
+  /* progress dots */
+  .dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 1.5rem;
+    position: relative; z-index: 2;
+  }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(232,83,106,0.3);
+    transition: all 0.3s;
+  }
+  .dot.active { background: var(--rose); transform: scale(1.3); }
+
+  /* scroll-in */
+  .fade-in { animation: fadeIn 0.8s ease forwards; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+</style>
+</head>
+<body>
+
+<!-- FLOATING PETALS -->
+<div class="petals-container" id="petals"></div>
+
+<!-- ===== PAGE 1: INTRO ===== -->
+<div class="page active" id="page1">
+  <div class="intro-content fade-in">
+    <span class="big-heart">💝</span>
+    <h1>Shikha ke liye...</h1>
+    <p>Tumhare liye kuch bahut khaas hai 🌸<br>Ye letter sirf tumhare liye likha hai</p>
+    <button class="nav-btn" onclick="goTo(2)">Aage Chalein 🌹</button>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 2: GIF 1 ===== -->
+<div class="page" id="page2">
+  <div class="stars"></div>
+  <div class="gif-card fade-in">
+    <h2>Tum ho meri duniya... 🌙</h2>
+    <img src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyOTVhc282MmdoZGtvZ3R5bHBtbnQwazgydWI0c2YzeTN2aWlyeGVkeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0VKJ1SB7XmTpuHFc1r/giphy.gif" alt="love gif">
+    <p class="quote">"Raat ke taaron mein bhi tumhara chehra dikhta hai,<br>
+    Din ki roshni mein bhi tumhari yaad aati hai..."</p>
+    <button class="nav-btn" onclick="goTo(3)">Aur Aage 💫</button>
+    <button class="nav-btn nav-btn-light" onclick="goTo(1)" style="margin-left:10px;">← Wapas</button>
+    <div class="dots" style="margin-top:1rem">
+      <div class="dot"></div>
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 3: LOVE LETTER ===== -->
+<div class="page" id="page3">
+  <div class="envelope-wrapper fade-in">
+    <div class="letter-header">
+      <h2>💌 Mera Dil, Meri Baat</h2>
+    </div>
+    <div class="letter-paper">
+      <p class="salutation">Meri Pyaari Shikha, <span class="rose-dec">🌹</span></p>
+      <p>Kuch baatein hoti hain jo zubaan se kehna mushkil hota hai... isliye ye kalam utha li. Tum jo ho, jaisi ho — bilkul waise hi — mujhe bahut pasand ho.</p>
+      <p>Tumhari hansi mein ek jadoo hai jo mere poore din ko roshan kar deta hai. Tumhari baatein sun ke lagta hai jaise koi sitar baj rahi ho — madhur, gehri, aur dil ko chhu lene wali.</p>
+      <p>Tumhare saath jitna waqt guzra hai, wo mere liye anmol hai. Har ek pal mein tumhara pyaar, tumhara care, aur tumhari dosti chhup hui hai.</p>
+      <p>Shikha, aaj sirf itna kehna chahta hoon — tum is duniya ki sabse khaas insaan ho mere liye. Tum khush raho, hamesha muskurao — ye meri sabse badi dua hai.</p>
+      <p>Aur agar kabhi mushkil aaye, yaad rakhna — main hamesha hoon tumhare liye. 💕</p>
+      <p class="sign-off">Dil se tumhara,<br>Tumhara Woh 🌸</p>
+    </div>
+    <div style="text-align:center; margin-top:1.5rem">
+      <button class="nav-btn" onclick="goTo(4)">Aage 🌺</button>
+      <button class="nav-btn nav-btn-light" onclick="goTo(2)" style="margin-left:10px;">← Wapas</button>
+      <div class="dots" style="margin-top:1rem">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 4: GIF 2 ===== -->
+<div class="page" id="page4">
+  <div class="stars"></div>
+  <div class="gif-card fade-in">
+    <h2>Dil ki baat... 💞</h2>
+    <img src="https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUydmxhcGJseXB3YWJubzVhNjByaTQxcWkyZmU4cXExMHI2NHNzam9saiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GXFDStd2CP1ba/giphy.gif" alt="love gif 2">
+    <p class="quote">"Mohabbat koi ek pal nahi,<br>
+    ye har saans mein chhupa hai tumhara naam..."</p>
+    <button class="nav-btn" onclick="goTo(5)">Aur Pyaar 🌷</button>
+    <button class="nav-btn nav-btn-light" onclick="goTo(3)" style="margin-left:10px;">← Wapas</button>
+    <div class="dots" style="margin-top:1rem">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 5: GIF 3 + 4 ===== -->
+<div class="page" id="page5">
+  <div class="stars"></div>
+  <div class="gif-card fade-in">
+    <h2>Sirf tumhara... ❤️‍🔥</h2>
+    <img src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyMmU0aWJtdTFnZmF4cGwwdThsYzdyMHMzM2k1OXBobzM1NHhoMHk5dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l4Ki4biBSwhjyrS48/giphy.gif" alt="love gif 3">
+    <p class="quote">"Tum ho toh lagta hai,<br>
+    ye zindagi kitni khoobsurat hai..."</p>
+    <div style="margin-top:1.5rem">
+      <img src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyNTlydGxjMWxjNWxtN213N2RwNjd3cmNrZHBhcHQxOTlqeTB1YTFrNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4N1wOi78ZGzSB6H7vK/giphy.gif" alt="love gif 4" style="margin-top:1rem; border-top:2px solid rgba(255,179,193,0.3); padding-top:1rem">
+    </div>
+    <p class="quote" style="margin-top:0.8rem">"Dil ne maana... dil ne jaana...<br>Shikha se hi hai ye zamana 💫"</p>
+    <button class="nav-btn" onclick="goTo(6)">Aakhri Sawaal ❓</button>
+    <button class="nav-btn nav-btn-light" onclick="goTo(4)" style="margin-left:10px;">← Wapas</button>
+    <div class="dots" style="margin-top:1rem">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot active"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 6: YES/NO GAME ===== -->
+<div class="page" id="page6">
+  <div class="game-box fade-in">
+    <h2>Ek Sawaal... 🥺</h2>
+    <p class="sub">Seedha dil se, seedha tumse</p>
+    <span class="question-heart">💗</span>
+    <p style="font-family:'Playfair Display',serif; font-size:clamp(1.1rem,4vw,1.6rem); color:var(--deep); font-style:italic;">
+      "Kya tum mujhse pyaar karti ho?"
+    </p>
+    <div class="btn-group">
+      <button class="btn-yes" onclick="yesClicked()">💖 Haan!</button>
+      <button class="btn-no" id="noBtn" onclick="noClicked()">😶 Nahi</button>
+    </div>
+    <p id="no-hint" style="color:var(--rose); font-size:0.85rem; margin-top:1rem; font-family:'Lato',sans-serif; opacity:0; transition:opacity 0.5s;">
+      (Sach mein? Ek baar aur sochlo... 🥺)
+    </p>
+    <div class="dots" style="margin-top:2rem">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot active"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 7: YES SURPRISE ===== -->
+<div class="page" id="page7">
+  <div class="surprise-content fade-in">
+    <div class="fireworks">🎉🎊💖🌹🎇✨💫🌸🎆</div>
+    <h1>Mujhe Pata Tha! 💝</h1>
+    <p class="surprise-msg">
+      "Shikha... ye sunke dil khushi se bhar gaya! 🥹<br>
+      Tumhara pyaar mere liye is duniya ki sabse badi daulat hai.<br>
+      Main hamesha tumhara hun — aaj, kal, aur hamesha. ❤️‍🔥"
+    </p>
+    <div class="big-surprise-gif">
+      <img src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyNTlydGxjMWxjNWxtN213N2RwNjd3cmNrZHBhcHQxOTlqeTB1YTFrNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4N1wOi78ZGzSB6H7vK/giphy.gif" alt="celebration">
+    </div>
+    <div class="fireworks" style="font-size:2.5rem">💑🥂🌹💍💐🎶</div>
+    <p style="font-family:'Dancing Script',cursive; font-size:clamp(1.5rem,5vw,2.5rem); color:#ffb3c6; margin-top:1rem; text-shadow:0 0 20px rgba(255,100,130,0.7);">
+      I Love You, Shikha! 💕
+    </p>
+  </div>
+</div>
+
+<!-- ===== PAGE 8: SAD (No twice) ===== -->
+<div class="page" id="page8">
+  <div class="sad-content fade-in">
+    <h2>💔 Rona chahta hoon...</h2>
+    <div class="sad-gif">
+      <img src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyOTVhc282MmdoZGtvZ3R5bHBtbnQwazgydWI0c2YzeTN2aWlyeGVkeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0VKJ1SB7XmTpuHFc1r/giphy.gif" alt="sad gif">
+    </div>
+    <p class="sad-msg">
+      "Shikha... ye sun ke dil thoda toota 😔<br>
+      Par koi baat nahi... Tumhari khushi meri khushi hai.<br>
+      Bas ek baar aur sochlo? Dil kehta hai tumhara bhi kuch toh hai... 🥺"
+    </p>
+    <button class="retry-btn" onclick="goTo(6)">Ek Baar Aur Sochein? 🥺</button>
+  </div>
+</div>
+
+<script>
+  // ===== PETALS =====
+  const emojis = ['🌸','🌹','🌺','💕','🌷','💖','✨','🌼'];
+  const petalsContainer = document.getElementById('petals');
+  for(let i = 0; i < 20; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+    p.style.left = Math.random()*100 + '%';
+    p.style.animationDuration = (5 + Math.random()*10) + 's';
+    p.style.animationDelay = (Math.random()*10) + 's';
+    p.style.fontSize = (0.8 + Math.random()*1.5) + 'rem';
+    petalsContainer.appendChild(p);
+  }
+
+  // ===== NAVIGATION =====
+  let currentPage = 1;
+  function goTo(n) {
+    document.getElementById('page'+currentPage).classList.remove('active');
+    currentPage = n;
+    const target = document.getElementById('page'+n);
+    target.classList.add('active');
+    // trigger fade-in
+    const fc = target.querySelector('.fade-in, .gif-card, .intro-content, .envelope-wrapper, .game-box, .surprise-content, .sad-content');
+    if(fc) { fc.style.animation='none'; void fc.offsetWidth; fc.style.animation=''; }
+    window.scrollTo(0,0);
+  }
+
+  // ===== NO BUTTON =====
+  let noCount = 0;
+  const noBtn = document.getElementById('noBtn');
+  const noHint = document.getElementById('no-hint');
+
+  function noClicked() {
+    noCount++;
+    if(noCount === 1) {
+      // First no: show hint, move button
+      noHint.style.opacity = '1';
+      moveNoBtn();
+    } else {
+      // Second no: go to sad page
+      goTo(8);
+      noCount = 0;
+      noHint.style.opacity = '0';
+      noBtn.style.position = '';
+      noBtn.style.left = '';
+      noBtn.style.top = '';
+    }
+  }
+
+  function moveNoBtn() {
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    noBtn.style.position = 'fixed';
+    noBtn.style.zIndex = '9999';
+    let rx, ry;
+    do {
+      rx = 10 + Math.random() * (vw - 150);
+      ry = 10 + Math.random() * (vh - 80);
+    } while(rx > vw/2 - 100 && rx < vw/2 + 100 && ry > vh/2 - 60 && ry < vh/2 + 60);
+    noBtn.style.left = rx + 'px';
+    noBtn.style.top = ry + 'px';
+    noBtn.style.transition = 'left 0.3s, top 0.3s';
+
+    // Keep running when hovered
+    noBtn.onmouseover = () => moveNoBtn();
+    noBtn.ontouchstart = (e) => { e.preventDefault(); moveNoBtn(); };
+  }
+
+  // ===== YES BUTTON =====
+  function yesClicked() {
+    noCount = 0;
+    noHint.style.opacity = '0';
+    noBtn.style.position = '';
+    goTo(7);
+    launchConfetti();
+  }
+
+  function launchConfetti() {
+    const colors = ['#e8536a','#f9c4ce','#e4b06a','#ffb3c1','#fff','#c0374f','#ffd700'];
+    for(let i = 0; i < 80; i++) {
+      const c = document.createElement('div');
+      c.className = 'confetti-piece';
+      c.style.background = colors[Math.floor(Math.random()*colors.length)];
+      c.style.left = Math.random()*100 + 'vw';
+      c.style.animationDuration = (2+Math.random()*3) + 's';
+      c.style.animationDelay = (Math.random()*2) + 's';
+      c.style.borderRadius = Math.random()>0.5 ? '50%' : '2px';
+      c.style.width = c.style.height = (6+Math.random()*10) + 'px';
+      document.body.appendChild(c);
+      setTimeout(()=>c.remove(), 6000);
+    }
+  }
+</script>
+</body>
+</html>
